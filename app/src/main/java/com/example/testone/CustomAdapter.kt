@@ -7,13 +7,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(val img:Array<Int>,val text: Array<String>):RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
+class CustomAdapter(val img:Array<Int>,val text: Array<String>, val desc: Array<String>):RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
 
     class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bindValue(image:Int, txt: String){
-            itemView.findViewById<ImageView>(R.id.imageView).setImageResource(image)
-            itemView.findViewById<TextView>(R.id.text_two).text = txt
+        fun bindValue(image:Int, txt: String, desc: String){
+            itemView.findViewById<ImageView>(R.id.image).setImageResource(image)
+            itemView.findViewById<TextView>(R.id.title).text = txt
+            itemView.findViewById<TextView>(R.id.desc).text = desc
         }
     }
 
@@ -26,7 +27,7 @@ class CustomAdapter(val img:Array<Int>,val text: Array<String>):RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.bindValue(img[position],text[position])
+        holder.bindValue(img[position],text[position],desc[position])
     }
 
 }

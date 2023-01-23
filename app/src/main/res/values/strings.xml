@@ -3,4 +3,6 @@
     <string name="login">login</string>
     <string name="password">password</string>
     <string name="start">start</string>
+    <string name="text">StarWars</string>
+    <string name="desc">New</string>
 </resources>

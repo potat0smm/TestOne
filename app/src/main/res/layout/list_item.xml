@@ -1,54 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="#CC2020"
-    android:layout_marginTop="8dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:layout_height="wrap_content">
-    
-    <RelativeLayout
+    android:layout_width="170dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="#F8F7F7"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="8dp">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#751414"
-        android:padding="15dp">
-    
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="295dp"
-        android:layout_height="178dp"
-        android:background="#A61616"
-        app:srcCompat="@drawable/starwarsthree"/>
-
-    <TextView
-        android:id="@+id/text_two"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="StarWars"
-        android:textColor="#F8F8F8"
-        android:layout_toRightOf="@id/imageView"/>
-
-    <TextView
-        android:id="@+id/text_three"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Cinema"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_toRightOf="@id/imageView"/>
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="40dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/movie"/>
-    </RelativeLayout>
-</RelativeLayout>
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/sw" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/text"
+            android:textColor="@color/black"
+            android:textSize="21sp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/desc"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
