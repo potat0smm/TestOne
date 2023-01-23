@@ -18,10 +18,10 @@ class LoginActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        fun goMy(@Suppress("UNUSED_PARAMETER")view: View) {
-            val text = mBinding.etName.text.toString()
-            val goIntent = Intent(this,MenuActivity::class.java)
-            startActivity(goIntent)
-        }
+
+    }
+    fun goMy(@Suppress("UNUSED_PARAMETER")view: View) {
+        val goMyIntent = Intent(this,MenuActivity::class.java)
+        startActivity(goMyIntent)
     }
 }
