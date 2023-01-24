@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fromYDelta="100%p" android:toYDelta="0%p"
+    android:duration="@android:integer/config_longAnimTime"
     tools:context=".MenuActivity">
 
 
@@ -12,7 +14,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#EA1515"
+        android:background="#E41B1B"
         android:orientation="vertical"
         >
 
@@ -47,6 +49,7 @@
         android:layout_gravity="bottom"
         app:fabCradleMargin="10dp"
         android:layout_margin="10dp"
+        android:backgroundTint="@color/white"
         app:fabCradleRoundedCornerRadius="10dp"
         app:fabCradleVerticalOffset="10dp">
 
@@ -55,12 +58,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/transparent_background"
+            app:itemIconTint="@color/item"
             app:menu="@menu/menu" />
     </com.google.android.material.bottomappbar.BottomAppBar>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
         android:src="@drawable/baseline_shopping_cart_24"
         app:layout_anchor="@id/bottomAppBar" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

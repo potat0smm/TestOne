@@ -11,19 +11,22 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testone.databinding.MenuActivityBinding
+import com.google.android.material.snackbar.Snackbar
 
 class MenuActivity : AppCompatActivity() {
 
     private val img = arrayOf(R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw)
     private val desc = arrayOf("desc","desc","desc","desc","desc","desc","desc","desc","desc")
     private val text = arrayOf("StarWars","StarWars","StarWars","StarWars","StarWars","StarWars","StarWars","StarWars","StarWars")
-    private lateinit var menuActivityBinding: MenuActivityBinding
+    lateinit var menuActivityBinding: MenuActivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_activity)
         menuActivityBinding = MenuActivityBinding.inflate(layoutInflater)
         setContentView(menuActivityBinding.root)
+
+        //full
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
@@ -34,17 +37,48 @@ class MenuActivity : AppCompatActivity() {
         recyclerView.adapter = CustomAdapter(img,text,desc)
 
 
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home -> finish()
-            R.id.Map -> {
-                Toast.makeText(this,"sus",Toast.LENGTH_SHORT).show()
+        //transitions between activities
+        menuActivityBinding.bottomNavigationView.setOnItemReselectedListener {
+
+            when(it.itemId){
+
+                R.id.home -> {
+
+                }
+                R.id.person -> {
+                    val intent = Intent(this,PersonActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.setting ->{
+                    val intent = Intent(this,SettingActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.Map -> {
+                    val intent = Intent(this,MapActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
-        return true
+        //snakbar shop
+        val fab: View = findViewById(R.id.fab)
+        fab.setOnClickListener{
+            val intent = Intent (this,MapActivity::class.java)
+            startActivity(intent)
+        }
     }
+
+    //creation of Toast
+    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.Map -> {
+                val intent = Intent(this@MenuActivity, MapActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
+        return true
+    }*/
 
 
 

@@ -17,7 +17,7 @@
 
     <style name="ProgressbarColor" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
 
-        <item name="colorSecondary">#FCF3E4E4</item>
+        <item name="colorSecondary">#FC181717</item>
 
 
         <item name="windowNoTitle">true</item>
