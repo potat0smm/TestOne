@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.lifecycle.ViewModelProvider
 import com.example.testone.databinding.PersonActivityBinding
 
 class PersonActivity : AppCompatActivity() {
 
     lateinit var binding: PersonActivityBinding
+    private lateinit var viewModel: ViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.person_activity)
@@ -19,6 +21,12 @@ class PersonActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+        //buttom sheet
+        viewModel = ViewModelProvider(this).get(ViewModel::class.java)
+        binding.fab.setOnClickListener {
+            BuySheet().show(supportFragmentManager, "newTaskTag")
+        }
+
         binding.bottomNavigationView.setOnItemReselectedListener {
 
             when(it.itemId){

@@ -7,19 +7,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(val img:Array<Int>,val text: Array<String>, val desc: Array<String>,
-                    val img_two:Array<Int>,val text_two:Array<String>, val desc_two: Array<String>
+class CustomAdapter(val img:Array<Int>,val text: Array<String>, val desc: Array<String>
                 ):RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
 
     class CustomViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bindValue(image:Int, txt: String, desc: String, image_two: Int, txt_two:String, desc_t: String){
+        fun bindValue(image:Int, txt: String, desc: String, ){
             itemView.findViewById<ImageView>(R.id.image).setImageResource(image)
             itemView.findViewById<TextView>(R.id.title).text = txt
             itemView.findViewById<TextView>(R.id.desc).text = desc
-            itemView.findViewById<ImageView>(R.id.image_two).setImageResource(image_two)
-            itemView.findViewById<TextView>(R.id.title_two).text = txt_two
-            itemView.findViewById<TextView>(R.id.desc_two).text = desc_t
+
         }
     }
 
@@ -33,7 +30,7 @@ class CustomAdapter(val img:Array<Int>,val text: Array<String>, val desc: Array<
 
 
     override fun onBindViewHolder(holder: CustomAdapter.CustomViewHolder, position: Int) {
-        holder.bindValue(img[position],text[position],desc[position],img_two[position],text_two[position],desc_two[position])
+        holder.bindValue(img[position],text[position],desc[position])
     }
 
 }

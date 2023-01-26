@@ -19,9 +19,12 @@ class LoginActivity : AppCompatActivity() {
         )
 
 
+
+
     }
     fun goMy(@Suppress("UNUSED_PARAMETER")view: View) {
         val goMyIntent = Intent(this,MenuActivity::class.java)
         startActivity(goMyIntent)
     }
+
 }

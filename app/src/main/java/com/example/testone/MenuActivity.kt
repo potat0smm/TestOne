@@ -7,26 +7,29 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.testone.databinding.MenuActivityBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 
 class MenuActivity : AppCompatActivity() {
 
-    private val img = arrayOf(R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,)
-    private val desc = arrayOf("desc","desc","desc","desc","desc","desc","desc")
-    private val text = arrayOf("StarWars","StarWars","StarWars","StarWars","StarWars","StarWars","StarWars")
-    private val img_two = arrayOf(R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw)
-    private val desc_two = arrayOf("new","new","new","new","new","new","new")
-    private val text_two = arrayOf("StarWars","StarWars","StarWars","StarWars","StarWars","StarWars","StarWars")
+    private val img = arrayOf(R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw,R.drawable.sw)
+    private val desc = arrayOf("new","new","new","new","new","new","new","new")
+    private val text = arrayOf("StarWars","StarWars","StarWars","StarWars","StarWars","StarWars","StarWars","StarWars")
     lateinit var menuActivityBinding: MenuActivityBinding
     private lateinit var dialog: BottomSheetDialog
     private lateinit var recyclerView: RecyclerView
+    private lateinit var viewModel: ViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -34,36 +37,42 @@ class MenuActivity : AppCompatActivity() {
         menuActivityBinding = MenuActivityBinding.inflate(layoutInflater)
         setContentView(menuActivityBinding.root)
 
+        //buttom sheet
+        viewModel = ViewModelProvider(this).get(ViewModel::class.java)
+        menuActivityBinding.fab.setOnClickListener {
+            BuySheet().show(supportFragmentManager, "newTaskTag")
+        }
+
+        /*taskViewModel.name.observe(this){
+            menuActivityBinding.
+        }*/
+
         //full
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-
+        //two line
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = CustomAdapter(img,text,desc, img_two,text_two,desc_two)
-
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.adapter = CustomAdapter(img, text, desc)
 
 
         //transitions between activities
         menuActivityBinding.bottomNavigationView.setOnItemReselectedListener {
 
-            when(it.itemId){
+            when (it.itemId) {
 
                 R.id.home -> {
 
                 }
 
 
-
-
-
-                    /*val dialogView = layoutInflater.inflate(R.layout.list_item,null)
+                /*val dialogView = layoutInflater.inflate(R.layout.list_item,null)
                     dialog = BottomSheetDialog(this,R.style.BottomSheetDialogTheme)
                     dialog.setContentView(dialogView)*/
 
-                    /*val bottomSheetDialog = BottomSheetDialog(this@MenuActivity,R.style.BottomSheetDialogTheme)
+                /*val bottomSheetDialog = BottomSheetDialog(this@MenuActivity,R.style.BottomSheetDialogTheme)
                     val bottomSheetView = LayoutInflater.from(applicationContext).inflate(
                         R.layout.menu_activity, findViewById(R.id.home) as LinearLayout?
                     )
@@ -72,26 +81,27 @@ class MenuActivity : AppCompatActivity() {
                     //bottomSheetView.findViewById<View>(R.id.Map).setOnClickListener{}*/
 
                 R.id.person -> {
-                    val intent = Intent(this,PersonActivity::class.java)
+                    val intent = Intent(this, PersonActivity::class.java)
                     startActivity(intent)
                 }
-                R.id.setting ->{
-                    val intent = Intent(this,SettingActivity::class.java)
+                R.id.setting -> {
+                    val intent = Intent(this, SettingActivity::class.java)
                     startActivity(intent)
                 }
                 R.id.Map -> {
-                    val intent = Intent(this,MapActivity::class.java)
+                    val intent = Intent(this, MapActivity::class.java)
                     startActivity(intent)
                 }
             }
         }
+    }
         //snakbar shop
-        val fab: View = findViewById(R.id.fab)
+        /*val fab: View = findViewById(R.id.fab)
         fab.setOnClickListener{
             val intent = Intent (this,MapActivity::class.java)
             startActivity(intent)
         }
-    }
+    }*/
 
     //creation of Toast
     /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -104,7 +114,4 @@ class MenuActivity : AppCompatActivity() {
         }
         return true
     }*/
-
-//bottom sheet
-
 }

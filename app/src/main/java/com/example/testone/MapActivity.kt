@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.lifecycle.ViewModelProvider
 import com.example.testone.databinding.MapActivityBinding
 
 class MapActivity : AppCompatActivity() {
 
     lateinit var binding: MapActivityBinding
+    private lateinit var viewModel: ViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.map_activity)
@@ -19,6 +21,15 @@ class MapActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
+        //buttom sheet
+        viewModel = ViewModelProvider(this).get(ViewModel::class.java)
+        binding.fab.setOnClickListener {
+            BuySheet().show(supportFragmentManager, "newTaskTag")
+        }
+
+
+
 
         binding.bottomNavigationView.setOnItemReselectedListener {
 

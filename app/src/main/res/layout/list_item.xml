@@ -2,10 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="200dp"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardCornerRadius="5dp"
+    android:background="#CF1C1C"
     app:cardElevation="8dp">
 
 
@@ -14,13 +15,8 @@
         android:layout_height="wrap_content"
         android:descendantFocusability="blocksDescendants"
         android:orientation="vertical"
-        android:paddingTop="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:background="#E41B1B"
+        android:paddingTop="5dp">
 
 
         <LinearLayout
@@ -41,6 +37,7 @@
                 android:focusable="true"
                 app:cardCornerRadius="6dp"
                 app:cardElevation="3dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,74 +54,27 @@
                         android:id="@+id/title"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="10dp"
                         android:text="@string/text"
                         android:textColor="@color/black"
-                        android:textSize="21sp"
-                        android:layout_marginLeft="14dp"
-                        android:layout_marginRight="10dp"/>
+                        android:textSize="21sp" />
 
                     <TextView
                         android:id="@+id/desc"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="@string/desc"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
                         android:layout_marginLeft="14dp"
                         android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/desc"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_two"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:checkable="true"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="3dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/image_two"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/sw" />
-
-                    <TextView
-                        android:id="@+id/title_two"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/text"
-                        android:textColor="@color/black"
-                        android:textSize="21sp"
-                        android:layout_marginLeft="14dp"
-                        android:layout_marginRight="10dp"/>
-
-                    <TextView
-                        android:id="@+id/desc_two"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/desc"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="14dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="10dp"/>
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
 
 
         </LinearLayout>
