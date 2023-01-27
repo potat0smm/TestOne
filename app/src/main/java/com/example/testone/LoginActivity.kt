@@ -4,27 +4,30 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
-import com.example.testone.databinding.LoginActivityBinding
+import androidx.fragment.app.Fragment
 
-class LoginActivity : AppCompatActivity() {
-    lateinit var mBinding: LoginActivityBinding
+
+class LoginActivity : AppCompatActivity(),FragmentNavigation {
+    //lateinit var mBinding: LoginActivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_activity)
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
-
-
-
-
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container,LoginFragment())
+            .commit()
     }
-    fun goMy(@Suppress("UNUSED_PARAMETER")view: View) {
-        val goMyIntent = Intent(this,MenuActivity::class.java)
-        startActivity(goMyIntent)
+    override fun navigateFrag(fragment: Fragment, addToStack: Boolean) {
+        val transaction = supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container,fragment)
+
+        if(addToStack){
+            transaction.addToBackStack(null)
+        }
+        transaction.commit()
     }
+
+
 
 }
