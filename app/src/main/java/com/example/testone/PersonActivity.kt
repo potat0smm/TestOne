@@ -9,7 +9,7 @@ import com.example.testone.databinding.PersonActivityBinding
 
 class PersonActivity : AppCompatActivity() {
 
-    lateinit var binding: PersonActivityBinding
+/*    lateinit var binding: PersonActivityBinding
     private lateinit var viewModel: ViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,5 +49,5 @@ class PersonActivity : AppCompatActivity() {
             }
         }
 
-    }
+    }*/
 }

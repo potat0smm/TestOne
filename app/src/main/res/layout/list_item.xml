@@ -6,16 +6,14 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardCornerRadius="5dp"
-    android:background="#CF1C1C"
     app:cardElevation="8dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:descendantFocusability="blocksDescendants"
         android:orientation="vertical"
-        android:background="#E41B1B"
         android:paddingTop="5dp">
 
 
@@ -39,7 +37,6 @@
                 app:cardElevation="3dp">
 
                 <LinearLayout
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -74,8 +71,6 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
-
-
 
 
         </LinearLayout>

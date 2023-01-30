@@ -5,26 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.testone.databinding.FragmentBuySheetBinding
+import com.example.testone.databinding.UpMenuBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class
 
-BuySheet : BottomSheetDialogFragment() {
+UpMenu : BottomSheetDialogFragment() {
 
-    private lateinit var binding: FragmentBuySheetBinding
-    private lateinit var viewModel: ViewModel
-
+    private lateinit var binding: UpMenuBinding
+    private lateinit var viewModel: ViewModelTwo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val activity = requireActivity()
-        viewModel = ViewModelProvider(activity).get(ViewModel::class.java)
+            //viewModel = ViewModelTwo(activity).get(ViewModelTwo::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentBuySheetBinding.inflate(inflater,container,false )
+
+        binding = UpMenuBinding.inflate(inflater,container,false )
         return binding.root
+
     }
 
 

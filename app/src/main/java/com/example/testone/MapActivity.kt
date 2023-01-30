@@ -9,7 +9,7 @@ import com.example.testone.databinding.MapActivityBinding
 
 class MapActivity : AppCompatActivity() {
 
-    lateinit var binding: MapActivityBinding
+/*    lateinit var binding: MapActivityBinding
     private lateinit var viewModel: ViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,5 +53,5 @@ class MapActivity : AppCompatActivity() {
             }
         }
 
-    }
+    }*/
 }

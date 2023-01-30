@@ -3,8 +3,10 @@ package com.example.testone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.testone.databinding.MenuActivityBinding
@@ -31,6 +33,10 @@ class MenuActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(ViewModel::class.java)
         menuActivityBinding.fab.setOnClickListener {
             BuySheet().show(supportFragmentManager, "newTaskTag")
+
+       // viewModel = ViewModelProvider(this).get(ViewModelTwo::class.java)
+        //menuActivityBinding.
+
         }
 
         /*taskViewModel.name.observe(this){
@@ -51,7 +57,7 @@ class MenuActivity : AppCompatActivity() {
         //transitions between activities
         menuActivityBinding.bottomNavigationView.setOnItemReselectedListener {
 
-            when (it.itemId) {
+            /*when (it.itemId) {
 
                 R.id.home -> {
 
@@ -82,7 +88,7 @@ class MenuActivity : AppCompatActivity() {
                     val intent = Intent(this, MapActivity::class.java)
                     startActivity(intent)
                 }
-            }
+            }*/
         }
     }
         //snakbar shop
